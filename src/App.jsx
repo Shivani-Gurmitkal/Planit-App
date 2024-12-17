@@ -6,7 +6,6 @@ import Intro from "./Components/Intro";
 
 const firebaseUrl = 'https://frontend-545b3-default-rtdb.asia-southeast1.firebasedatabase.app/';
 
-
 function App(){
   let {user} = useUser();
   let {isSignedIn} = useAuth();
@@ -78,13 +77,10 @@ function App(){
       </div> 
 
       <div className="mt-12 mb-6">
-        { todos.length > 0 ? (
-          todos.filter(todo=> isSignedIn ? todo.createdBy == user.username : true).map(todo=> <TodoCard id={todo.id} handleDelete={handleDelete} title={todo.title} key={todo.id}/>))
-        : <> <p className="text-gray-500 text-center">No todos are added yet.</p> </>
+        { todos.length > 0 ? (todos.filter(todo=> (isSignedIn ? todo.createdBy == user.username : true)).map(todo=> (<TodoCard id={todo.id} handleDelete={handleDelete} title={todo.title} key={todo.id}/>)))
+        : <p className="text-gray-500 text-center">No todos are added yet.</p>
         }
       </div>
-
-
     </div>
     </SignedIn>
     <SignedOut>
@@ -96,9 +92,3 @@ function App(){
 }
 
 export default App;
-
-
-
-
-
-
