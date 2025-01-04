@@ -18,7 +18,7 @@ function App(){
     let task = taskInput.current.value;
     axios.post(`${firebaseUrl}todos.json`, {  
       title: task,
-      createdBy : user.username, // Which todo(task) is added by which user.
+      createdBy : user.username, 
     }).then(()=>{
       setFormStatus(false);
       taskInput.current.value= ""; 
@@ -41,7 +41,6 @@ function App(){
   }
 
   function handleDelete(id){
-    // console.log('delet the function') // to check it (we should not pass id while checking)
     axios.delete(`${firebaseUrl}todos/${id}.json`).then(()=>{
       fetchTodos();
     })

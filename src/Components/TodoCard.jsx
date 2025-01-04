@@ -28,7 +28,6 @@ function TodoCard({title,handleDelete,id}) {
           <button  onClick={handleCheck}>{checkStatus ? <NotDone /> : <Done />}</button>
           <h2 className={`text-lg ${!checkStatus ? 'line-through text-gray-500' : ""}`}>{title}</h2>
         </div>
-           {/* <button onClick={()=>handleDelete(id)} className='hover:text-red-700'><FaTrash /> </button> */} 
         <button onClick={handleDeleteClick} className='hover:text-red-700'>{deleteStatus ? <Loader /> : <FaTrash />}</button>
       </div>
 
